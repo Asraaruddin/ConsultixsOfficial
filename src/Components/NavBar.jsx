@@ -71,9 +71,16 @@ const NavBar = ({ onFAQClick, onContactClick }) => {
 
         {/* Logo Centered */}
         <div className="flex items-center space-x-2">
-          <div className="w-[40px] h-[40px]">
-            <img src={logo} alt="Consultixs Logo" className="w-full h-full object-contain" />
-          </div>
+         
+<div className="w-[40px] h-[40px]">
+  <Link to="/">
+    <img
+      src={logo}
+      alt="Consultixs Logo"
+      className="w-full h-full object-contain cursor-pointer"
+    />
+  </Link>
+</div>
           <div className="flex flex-col justify-center">
             <span className="text-white font-bold text-[18px] leading-[100%] tracking-[-0.01em]">
               Consultixs
