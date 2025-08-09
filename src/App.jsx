@@ -27,27 +27,47 @@ function App() {
 
   return (
     <>
-      {/* Fixed Background */}
+      {/* Root-level fixed background */}
       <div
-        className="fixed inset-0 z-0 bg-cover bg-center"
         style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: '#000',
           backgroundImage: `url(${backgroundImage})`,
-          backdropFilter: 'blur(40px)'
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          zIndex: 0
+        }}
+      />
+      
+      {/* Fixed blur overlay */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backdropFilter: 'blur(40px)',
+          zIndex: 1,
+          pointerEvents: 'none'
         }}
       />
 
-      {/* Foreground Content */}
-      <div className="relative z-10">
+      {/* Foreground content */}
+      <div style={{ position: 'relative', zIndex: 2 }}>
         <NavBar onContactClick={onContactClick} onFAQClick={onFAQClick} />
 
-        {/* Routes */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/hire-talent" element={<Hire />} />
         </Routes>
 
-        {/* Common Contact + Footer */}
         <Contact ref={contactRef} />
         <Footer />
       </div>
