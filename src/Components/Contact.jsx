@@ -97,7 +97,7 @@ const Contact = forwardRef((props, ref) => {
                 <select
                   value={formData.country}
                   onChange={(e) => handleInputChange('country', e.target.value)}
-                  className="w-full bg-transparent border border-[#6C6C6C] rounded-lg px-3 py-3 text-white placeholder-[#DBDBDB] focus:border-white focus:outline-none"
+                  className="w-full bg-black border border-[#6C6C6C] rounded-lg px-3 py-3 text-white placeholder-[#DBDBDB] focus:border-white focus:outline-none"
                 >
                   <option value="">Select Country</option>
                   <option value="us">United States</option>
@@ -114,7 +114,7 @@ const Contact = forwardRef((props, ref) => {
                 <select
                   value={formData.companyType}
                   onChange={(e) => handleInputChange('companyType', e.target.value)}
-                  className="w-full bg-transparent border border-[#6C6C6C] rounded-lg px-3 py-3 text-white placeholder-[#DBDBDB] focus:border-white focus:outline-none"
+                  className="w-full bg-black border border-[#6C6C6C] rounded-lg px-3 py-3 text-white placeholder-[#DBDBDB] focus:border-white focus:outline-none"
                 >
                   <option value="">Select Category</option>
                   <option value="startup">Startup</option>
