@@ -1,5 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
-import { useRef } from 'react';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import { useRef, useEffect } from 'react';
 import './App.css';
 import NavBar from './Components/NavBar';
 import backgroundImage from './assets/bghome.png';
@@ -12,16 +12,35 @@ import Hire from './Pages/Hire';
 
 function App() {
   const contactRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Scroll to FAQ if URL has #faq
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash === '#faq') {
+      const faqSection = document.getElementById('faq');
+      if (faqSection) {
+        const top = faqSection.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: top - 80, behavior: 'smooth' });
+      }
+    }
+  }, [location]);
 
   const onContactClick = () => {
     contactRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const onFAQClick = () => {
-    const faqSection = document.getElementById('faq');
-    if (faqSection) {
-      const top = faqSection.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: top - 80, behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      // Navigate to home with #faq hash
+      navigate('/#faq');
+    } else {
+      // Already on home page → just scroll
+      const faqSection = document.getElementById('faq');
+      if (faqSection) {
+        const top = faqSection.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: top - 80, behavior: 'smooth' });
+      }
     }
   };
 

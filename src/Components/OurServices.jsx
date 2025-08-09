@@ -134,49 +134,52 @@ const OurServices = () => {
 
       {/* FAQ Section */}
       <div
-        id="faq"
-        className="w-full bg-black text-white flex items-start px-4 sm:px-6 md:px-12 lg:px-20 py-12 sm:py-16"
-      >
-        <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-10 md:gap-12">
-          {/* Left */}
-          <div className="md:w-1/3 flex flex-col justify-start text-center md:text-left">
-            <h2 className="text-3xl sm:text-4xl md:text-[48px] lg:text-[56px] font-dmsans font-bold mb-4">
-              FAQs
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl lg:text-[24px] font-dmsans text-gray-300">
-              Have questions? Our FAQ section has you covered with quick answers
-              to the most common inquiries.
-            </p>
-          </div>
+  id="faq"
+  className="w-full bg-black text-white px-4 sm:px-6 md:px-12 lg:px-20 py-12 sm:py-16"
+>
+  <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-4 md:gap-12">
+    
+    {/* Left */}
+    <div className="md:w-1/3 flex flex-col justify-start text-center md:text-left">
+      <h2 className="text-3xl sm:text-4xl md:text-[48px] lg:text-[56px] font-dmsans font-bold mb-4">
+        FAQs
+      </h2>
+      <p className="text-base sm:text-lg md:text-xl lg:text-[24px] font-dmsans text-gray-300">
+        Have questions? Our FAQ section has you covered with quick answers
+        to the most common inquiries.
+      </p>
+    </div>
 
-          {/* Right */}
-          <div className="md:w-2/3 flex flex-col gap-4">
-            {faqs.map((faq, index) => (
-              <div
-                key={index}
-                className="border-b border-[#9C9C9C] pb-4 cursor-pointer"
-                onClick={() => toggleFAQ(index)}
-              >
-                <div className="flex justify-between items-center">
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold">
-                    {faq.question}
-                  </h3>
-                  <FaChevronDown
-                    className={`transition-transform duration-300 ${
-                      openIndex === index ? "rotate-180" : ""
-                    }`}
-                  />
-                </div>
-                {openIndex === index && (
-                  <p className="mt-3 text-sm sm:text-base md:text-lg lg:text-[18px] font-dmsans text-white">
-                    {faq.answer}
-                  </p>
-                )}
-              </div>
-            ))}
+    {/* Right */}
+    <div className="md:w-2/3 flex flex-col gap-4">
+      {faqs.map((faq, index) => (
+        <div
+          key={index}
+          className="border-b border-[#9C9C9C] pb-4 cursor-pointer"
+          onClick={() => toggleFAQ(index)}
+        >
+          <div className="flex justify-between items-center">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold">
+              {faq.question}
+            </h3>
+            <FaChevronDown
+              className={`transition-transform duration-300 ${
+                openIndex === index ? "rotate-180" : ""
+              }`}
+            />
           </div>
+          {openIndex === index && (
+            <p className="mt-3 text-sm sm:text-base md:text-lg lg:text-[18px] font-dmsans text-white">
+              {faq.answer}
+            </p>
+          )}
         </div>
-      </div>
+      ))}
+    </div>
+    
+  </div>
+</div>
+
     </section>
   );
 };
