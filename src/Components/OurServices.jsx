@@ -4,44 +4,18 @@ import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import Frame from "../assets/Frame 245.png";
 import { FaStar, FaUserCircle ,FaChevronDown} from "react-icons/fa";
 
-
 const OurServices = () => {
   const faqs = [
-    {
-      question: "How experienced is your consulting team?",
-      answer: "Our team comprises industry veterans with 10+ years of collective experience.",
-    },
-    {
-      question: "Do you offer customized solutions?",
-      answer:
-        "Absolutely. We design bespoke strategies aligned with your unique business goals, resources, and market dynamics—no one-size-fits-all approaches.",
-    },
-    {
-      question: "How do you communicate progress during a project?",
-      answer:
-        "We provide weekly updates via video calls, detailed reports, and real-time dashboards to ensure you’re always informed and in control.",
-    },
-    {
-      question: "What is the first step to starting a project?",
-      answer:
-        "We begin with a free discovery call to understand your needs, followed by a proposal outlining objectives, timelines, and costs.",
-    },
-    {
-      question: "How do you stay updated on industry trends?",
-      answer:
-        "Our team engages in continuous learning through certifications, industry conferences, and partnerships with leading research organizations.",
-    },
-    {
-      question: "What if we need to terminate a project early?",
-      answer:
-        "We offer flexible terms. Early termination incurs charges only for work completed, with no hidden fees or penalties.",
-    },
+    { question: "How experienced is your consulting team?", answer: "Our team comprises industry veterans with 10+ years of collective experience." },
+    { question: "Do you offer customized solutions?", answer: "Absolutely. We design bespoke strategies aligned with your unique business goals, resources, and market dynamics—no one-size-fits-all approaches." },
+    { question: "How do you communicate progress during a project?", answer: "We provide weekly updates via video calls, detailed reports, and real-time dashboards to ensure you’re always informed and in control." },
+    { question: "What is the first step to starting a project?", answer: "We begin with a free discovery call to understand your needs, followed by a proposal outlining objectives, timelines, and costs." },
+    { question: "How do you stay updated on industry trends?", answer: "Our team engages in continuous learning through certifications, industry conferences, and partnerships with leading research organizations." },
+    { question: "What if we need to terminate a project early?", answer: "We offer flexible terms. Early termination incurs charges only for work completed, with no hidden fees or penalties." },
   ];
 
-  const [openIndex, setOpenIndex] = useState(null);
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
+  const [openIndexDesktop, setOpenIndexDesktop] = useState(null);
+  const [openIndexMobile, setOpenIndexMobile] = useState(null);
 
   const services = [
     "Software Development",
@@ -75,8 +49,6 @@ const OurServices = () => {
               className="mt-6 text-white rounded-[12px] flex items-center justify-center w-[200px] sm:w-[240px] lg:w-[295px] h-[48px] text-base sm:text-lg lg:text-[18px] font-bold"
               style={{
                 background: "linear-gradient(180deg, #0BC0FD 0%, #055EF2 71.63%)",
-                padding: "12px 20px",
-                gap: "8px",
               }}
             >
               Book a Call
@@ -133,53 +105,74 @@ const OurServices = () => {
       </div>
 
       {/* FAQ Section */}
-      <div
-  id="faq"
-  className="w-full bg-black text-white px-4 sm:px-6 md:px-12 lg:px-20 py-12 sm:py-16"
->
-  <div className="w-full max-w-7xl mx-auto flex flex-col md:flex-row gap-4 md:gap-12">
-    
-    {/* Left */}
-    <div className="md:w-1/3 flex flex-col justify-start text-center md:text-left">
-      <h2 className="text-3xl sm:text-4xl md:text-[48px] lg:text-[56px] font-dmsans font-bold mb-4">
-        FAQs
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl lg:text-[24px] font-dmsans text-gray-300">
-        Have questions? Our FAQ section has you covered with quick answers
-        to the most common inquiries.
-      </p>
-    </div>
+      <div id="faq" className="w-full bg-black text-white">
+        {/* Desktop & Tablet */}
+        <div className="hidden md:block px-6 lg:px-20 py-12 sm:py-16">
+          <div className="w-full max-w-7xl mx-auto flex gap-12">
+            {/* Left */}
+            <div className="w-1/3 flex flex-col justify-start">
+              <h2 className="text-[48px] lg:text-[56px] font-dmsans font-bold mb-4">FAQs</h2>
+              <p className="text-xl lg:text-[24px] font-dmsans text-gray-300">
+                Have questions? Our FAQ section has you covered with quick answers
+                to the most common inquiries.
+              </p>
+            </div>
 
-    {/* Right */}
-    <div className="md:w-2/3 flex flex-col gap-4">
-      {faqs.map((faq, index) => (
-        <div
-          key={index}
-          className="border-b border-[#9C9C9C] pb-4 cursor-pointer"
-          onClick={() => toggleFAQ(index)}
-        >
-          <div className="flex justify-between items-center">
-            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold">
-              {faq.question}
-            </h3>
-            <FaChevronDown
-              className={`transition-transform duration-300 ${
-                openIndex === index ? "rotate-180" : ""
-              }`}
-            />
+            {/* Right */}
+            <div className="w-2/3 flex flex-col gap-4">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="border-b border-[#9C9C9C] pb-4 cursor-pointer"
+                  onClick={() =>
+                    setOpenIndexDesktop(openIndexDesktop === index ? null : index)
+                  }
+                >
+                  <div className="flex justify-between items-center">
+                    <h3 className="text-2xl font-semibold">{faq.question}</h3>
+                    <FaChevronDown
+                      className={`transition-transform duration-300 ${
+                        openIndexDesktop === index ? "rotate-180" : ""
+                      }`}
+                    />
+                  </div>
+                  {openIndexDesktop === index && (
+                    <p className="mt-3 text-lg font-dmsans text-white">{faq.answer}</p>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
-          {openIndex === index && (
-            <p className="mt-3 text-sm sm:text-base md:text-lg lg:text-[18px] font-dmsans text-white">
-              {faq.answer}
-            </p>
-          )}
         </div>
-      ))}
-    </div>
-    
-  </div>
-</div>
 
+        {/* Mobile */}
+        <div className="block md:hidden px-4 py-10">
+          <h2 className="text-3xl font-bold text-center mb-6">Quick FAQs</h2>
+          <div className="flex flex-col gap-3">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-[#1A1A1A] rounded-lg p-4 shadow-md cursor-pointer"
+                onClick={() =>
+                  setOpenIndexMobile(openIndexMobile === index ? null : index)
+                }
+              >
+                <div className="flex justify-between items-center">
+                  <h3 className="text-base font-semibold">{faq.question}</h3>
+                  <FaChevronDown
+                    className={`transition-transform duration-300 ${
+                      openIndexMobile === index ? "rotate-180" : ""
+                    }`}
+                  />
+                </div>
+                {openIndexMobile === index && (
+                  <p className="mt-2 text-sm text-gray-300">{faq.answer}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
