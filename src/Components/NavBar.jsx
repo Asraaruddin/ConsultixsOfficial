@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { HiOutlineMenu, HiX } from 'react-icons/hi';
 import { Link as RouterLink } from 'react-router-dom';  // ✅ Router navigation
@@ -20,9 +21,12 @@ const NavBar = ({ onFAQClick, onContactClick }) => {
         
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <div className="w-[64px] h-[64px]">
-            <img src={logo} alt="Consultixs Logo" className="w-full h-full object-contain" />
-          </div>
+         <div className="w-[40px] h-[40px]">
+  <Link to="/">
+    <img src={logo} alt="Consultixs Logo" className="w-full h-full object-contain" />
+  </Link>
+</div>
+
           <div className="flex flex-col justify-center">
             <span className="text-white font-bold text-[28px] leading-[100%] tracking-[-0.01em]">
               Consultixs
