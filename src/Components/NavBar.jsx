@@ -48,18 +48,16 @@ const NavBar = ({ onFAQClick, onContactClick }) => {
         </nav>
 
         {/* Contact Button (smooth scroll if same page) */}
-        <ScrollLink
-          to="contact"
-          smooth
-          offset={-80}
-          duration={500}
-          className="w-[130px] lg:w-[150px] h-[45px] lg:h-[50px] px-[16px] lg:px-[20px] py-[10px] lg:py-[12px] 
-                     rounded-[12px] text-white text-sm lg:text-base font-medium 
-                     bg-[linear-gradient(180deg,#0BC0FD_0%,#055EF2_71.63%)] 
-                     hover:scale-105 transition cursor-pointer flex items-center justify-center"
-        >
-          Contact Us
-        </ScrollLink>
+      <button
+  onClick={onContactClick}
+  className="w-[130px] lg:w-[150px] h-[45px] lg:h-[50px] px-[16px] lg:px-[20px] py-[10px] lg:py-[12px] 
+             rounded-[12px] text-white text-sm lg:text-base font-medium 
+             bg-[linear-gradient(180deg,#0BC0FD_0%,#055EF2_71.63%)] 
+             hover:scale-105 transition cursor-pointer flex items-center justify-center"
+>
+  Contact Us
+</button>
+
       </div>
 
       {/* ================= Mobile / Small Tablet Nav ================= */}
