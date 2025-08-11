@@ -1,8 +1,39 @@
-import React from "react";
-import { useState } from "react";
-import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import React, { useState } from "react";
 import Frame from "../assets/Frame 245.png";
-import { FaStar, FaUserCircle ,FaChevronDown} from "react-icons/fa";
+import { FaStar, FaChevronDown } from "react-icons/fa";
+import testimonials1 from "../assets/testimonials1.jpg";
+import testimonials2 from "../assets/testimonials2.jpg";
+import ourservicesPic from "../assets/ourservices.jpg"; // Example default image
+import software from "../assets/software.png";
+import mobile from "../assets/mobile.png";
+import microsoft from "../assets/microsoft.png";
+import frontend from "../assets/frontend.png";
+import clouds from "../assets/clouds.png";
+import blockchain from "../assets/blockchain.png";
+import backend from "../assets/backend.png";
+import arvr from "../assets/arvr.png";
+import aiml from "../assets/aiml.png";
+
+const testimonials = [
+  {
+    image: testimonials1,
+    name: "John Smith",
+    role: "Startup Founder",
+    review: "Consultixs built our web app fast, fixed bugs quickly, and communicated clearly. Great team—super reliable and easygoing"
+  },
+  {
+    image: testimonials2,
+    name: "Sarah Lee",
+    role: "CTO",
+    review: "They handled our backend setup smoothly, solved deployment issues, and kept us updated. Felt like working with in-house developers."
+  },
+  {
+    image: testimonials1,
+    name: "Michael Johnson",
+    role: "Product Manager",
+    review: "Consultixs helped us launch on time, optimized performance, and stayed flexible with changes. Definitely recommend for startups and growing teams."
+  }
+];
 
 const OurServices = () => {
   const faqs = [
@@ -14,96 +45,258 @@ const OurServices = () => {
     { question: "What if we need to terminate a project early?", answer: "We offer flexible terms. Early termination incurs charges only for work completed, with no hidden fees or penalties." },
   ];
 
+  const [openServiceIndex, setOpenServiceIndex] = useState(null);
   const [openIndexDesktop, setOpenIndexDesktop] = useState(null);
   const [openIndexMobile, setOpenIndexMobile] = useState(null);
 
   const services = [
-    "Software Development",
-    "UI/UX Design",
-    "Mobile App Development",
-    "Front End Development",
-    "Back End Development",
-    "AI & ML Development",
-    "Microsoft Development",
-    "Blockchain Development",
-    "AR/VR Development",
-    "Cloud & DevOps",
+    {
+      name: "UI/UX Design",
+      image: ourservicesPic,
+      description: "We design and we craft.",
+      details:
+        "Design thoughtful user experiences and clean interfaces that make digital products easy and enjoyable to use. From wireframes to polished visuals, we craft with purpose and empathy.",
+      tags: ["Wireframing", "Prototyping", "User Research", "User Interface"],
+    },
+    {
+      name: "Software Development",
+      image: software,
+      description: "We build custom software solutions to meet your business needs.",
+      details:
+        "We specialize in building robust, scalable, and secure software tailored to your business needs. From enterprise systems to consumer apps, we ensure performance and reliability.",
+      tags: ["Custom Apps", "System Design", "API Development", "Integration"],
+    },
+    {
+      name: "Mobile App Development",
+      image: mobile,
+      description: "Native and cross-platform mobile applications.",
+      details:
+        "Our team creates stunning mobile apps for iOS and Android. Whether native or cross-platform, we deliver apps that are fast, responsive, and user-friendly.",
+      tags: ["iOS", "Android", "React Native", "Flutter"],
+    },
+    {
+      name: "Front End Development",
+      image: frontend,
+      description: "Responsive and interactive user interfaces.",
+      details:
+        "We craft responsive, accessible, and interactive front-end experiences using modern frameworks and best practices.",
+      tags: ["React.js", "Vue.js", "HTML/CSS", "Accessibility"],
+    },
+    {
+      name: "Back End Development",
+      image: backend,
+      description: "Robust and scalable server-side solutions.",
+      details:
+        "We build secure, high-performance back-end systems that power your applications and handle complex business logic.",
+      tags: ["Node.js", "Express.js", "Databases", "API Security"],
+    },
+    {
+      name: "AI & ML Development",
+      image: aiml,
+      description: "Smart AI-powered applications.",
+      details:
+        "Harness the power of AI and machine learning to deliver intelligent features and data-driven insights.",
+      tags: ["Machine Learning", "Data Analysis", "Chatbots", "Automation"],
+    },
+    {
+      name: "Microsoft Development",
+      image: microsoft,
+      description: "Custom Microsoft-based solutions.",
+      details:
+        "We build solutions using Microsoft technologies like .NET, Azure, and Office integrations.",
+      tags: [".NET", "Azure", "SharePoint", "Power BI"],
+    },
+    {
+      name: "Blockchain Development",
+      image: blockchain,
+      description: "Secure and decentralized applications.",
+      details:
+        "Our blockchain solutions provide security, transparency, and efficiency for your business operations.",
+      tags: ["Smart Contracts", "DApps", "Ethereum", "Hyperledger"],
+    },
+    {
+      name: "AR/VR Development",
+      image: arvr,
+      description: "Immersive augmented and virtual reality experiences.",
+      details:
+        "We create interactive and immersive AR/VR applications for training, entertainment, and business solutions.",
+      tags: ["Unity", "Unreal Engine", "3D Modeling", "VR Training"],
+    },
+    {
+      name: "Cloud & DevOps",
+      image: clouds,
+      description: "Scalable cloud infrastructure and DevOps automation.",
+      details:
+        "We help businesses migrate, optimize, and manage workloads in the cloud with automated DevOps pipelines.",
+      tags: ["AWS", "Azure", "CI/CD", "Kubernetes"],
+    },
   ];
 
   return (
     <section className="py-12 bg-black text-white">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Services Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
-          {/* Left */}
-          <div className="flex flex-col lg:py-6 ml-6">
-            <h2 className="font-bold text-3xl sm:text-4xl lg:text-[48px] leading-tight lg:leading-[80px] tracking-[-0.01em] font-dmsans">
+          
+          {/* Left Side */}
+          <div className="flex flex-col lg:py-6 ml-0 lg:ml-6">
+            <h2 className="font-['DM_Sans'] font-bold text-[36px] sm:text-[48px] leading-[50px] sm:leading-[80px] tracking-[-0.01em]">
               Our Services
             </h2>
-            <p className="mt-4 text-base sm:text-lg lg:text-xl leading-relaxed sm:leading-tight max-w-[483px] font-dmsans">
-              From idea to execution — everything you{" "}
-              <br className="hidden sm:block" /> 
-              need to build and scale your business.
+            <p className="mt-4 text-sm sm:text-base lg:text-xl leading-relaxed sm:leading-tight max-w-[483px] font-dmsans">
+              From idea to execution — everything you need to build and scale your business.
             </p>
             <button
-              className="mt-6 text-white rounded-[12px] flex items-center justify-center w-[200px] sm:w-[240px] lg:w-[295px] h-[48px] text-base sm:text-lg lg:text-[18px] font-bold"
+              className="mt-6 text-white rounded-[12px] flex items-center justify-center w-[160px] sm:w-[200px] lg:w-[295px] h-[40px] sm:h-[48px] text-sm sm:text-lg lg:text-[18px] font-bold"
               style={{
                 background: "linear-gradient(180deg, #0BC0FD 0%, #055EF2 71.63%)",
               }}
             >
               Book a Call
             </button>
+
+            {/* Image with overlay label */}
+            {openServiceIndex !== null && (
+             
+             <div
+  className="
+    mt-6 relative 
+    w-full 
+    max-w-[220px]     /* mobile */
+    sm:max-w-[320px]  /* tablet */
+    md:max-w-md       /* medium */
+    lg:w-[414px] lg:h-[439px] /* desktop fixed size */
+    rounded-[20px] 
+    overflow-hidden 
+    bg-[#0D0E10] 
+    mx-auto 
+    sm:mx-auto 
+    lg:ml-[-1px]      /* keep Figma alignment on desktop only */
+  "
+>
+  <img
+    src={services[openServiceIndex].image}
+    alt={services[openServiceIndex].name}
+    className="w-full h-auto object-cover"
+  />
+  <div
+    className="absolute bottom-0 left-0 p-4 w-full"
+    style={{
+      background: "#000000",
+      borderBottomRightRadius: "16px",
+      borderBottomLeftRadius: "16px",
+      borderWidth: "1px",
+      borderStyle: "solid",
+      borderImageSource:
+        "linear-gradient(89.79deg, #000000 -60.4%, #666666 50%)",
+      borderImageSlice: 1,
+    }}
+  >
+    <h3 className="text-white text-sm sm:text-lg font-semibold">
+      {services[openServiceIndex].name}
+    </h3>
+    <p className="text-gray-300 text-xs sm:text-sm">
+      {services[openServiceIndex].description}
+    </p>
+  </div>
+</div>
+
+
+            )}
           </div>
 
-          {/* Right */}
+          {/* Right Side */}
           <div className="flex flex-col gap-4 px-2 sm:px-6 lg:px-10 xl:px-14 lg:py-6">
             {services.map((service, index) => (
-              <div
-                key={index}
-                className="flex justify-between items-center py-3 border-b border-white/20"
-              >
-                <span className="font-bold text-lg sm:text-xl lg:text-[22px] font-dmsans">
-                  {service}
-                </span>
-                <FaArrowUpRightFromSquare className="text-xl" />
+              <div key={index} className="w-full">
+                <div
+                  className="flex justify-between items-center py-3 border-b border-white/20 cursor-pointer"
+                  onClick={() =>
+                    setOpenServiceIndex(openServiceIndex === index ? null : index)
+                  }
+                >
+                  <span className="font-['DM_Sans'] font-semibold text-xl sm:text-2xl lg:text-[32px] leading-[100%] tracking-[-0.01em]">
+                    {service.name}
+                  </span>
+                  <FaChevronDown
+                    className={`w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-300 ${openServiceIndex === index ? "rotate-180" : ""}`}
+                  />
+                </div>
+                {openServiceIndex === index && (
+                  <div className="mt-4 mb-6">
+                    <p className="text-gray-300 text-sm sm:text-base">{service.details}</p>
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {service.tags.map((tag, i) => (
+                        <span
+                          key={i}
+                          className="px-3 py-1 bg-white/10 rounded-full text-xs sm:text-sm"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
+
         </div>
       </div>
 
-      {/* Testimonials Section */}
+      {/* Testimonials */}
+     <div
+  className="w-full bg-center bg-no-repeat flex justify-center items-center text-white px-4 py-12"
+  style={{
+    backgroundImage: `url(${Frame})`,
+    backgroundColor: "black",
+    backgroundSize: "contain",
+    minHeight: "600px",
+  }}
+>
+  <div className="flex justify-center items-start gap-6 max-w-7xl overflow-x-auto no-scrollbar">
+    {testimonials.map((testimonial, index) => (
       <div
-        className="w-full bg-center bg-no-repeat flex justify-center items-center text-white px-4 py-12"
-        style={{
-          backgroundImage: `url(${Frame})`,
-          backgroundColor: "black",
-          backgroundSize: "contain",
-          minHeight: "600px",
-        }}
+        key={index}
+        className="bg-[#0D0D0D] p-4 sm:p-6 rounded-lg flex-shrink-0"
+        style={{ width: "340px", minHeight: "250px" }}
       >
-        <div className="flex justify-center items-center gap-6 flex-wrap max-w-7xl">
-          {[1, 2, 3].map((card) => (
-            <div
-              key={card}
-              className="bg-[#0D0D0D] flex flex-col justify-between items-start p-4 sm:p-6 rounded-lg"
-              style={{ width: "100%", maxWidth: "340px", minHeight: "250px" }}
-            >
-              <FaUserCircle size={40} className="text-gray-400" />
-              <div className="flex gap-1 text-white mt-2">
-                {[...Array(5)].map((_, i) => (
-                  <FaStar key={i} size={20} />
-                ))}
-              </div>
-              <p className="text-sm sm:text-base md:text-[14px] font-dmsans text-left mt-3">
-                Have questions? Our FAQ section has you covered with quick answers to
-                the most common inquiries.
-              </p>
-            </div>
+        {/* Profile Row */}
+        <div className="flex items-center gap-3">
+          <img
+            src={testimonial.image}
+            alt={testimonial.name}
+            className="w-[48px] h-[48px] rounded-full object-cover"
+          />
+          <div>
+            <h3 className="text-[#0BC0FD] text-sm sm:text-base font-semibold">
+              {testimonial.name}
+            </h3>
+            <p className="text-gray-400 text-xs sm:text-sm">
+              {testimonial.role}
+            </p>
+          </div>
+        </div>
+
+        {/* Stars */}
+        <div className="flex gap-1 text-white mt-3">
+          {[...Array(5)].map((_, i) => (
+            <FaStar key={i} size={20} />
           ))}
         </div>
-      </div>
 
+        {/* Review text */}
+        <p className="text-sm sm:text-base md:text-[14px] font-dmsans text-left mt-3">
+          {testimonial.review}
+        </p>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+     
+
+      {/* FAQ */}
       {/* FAQ Section */}
       <div id="faq" className="w-full bg-black text-white">
         {/* Desktop & Tablet */}
@@ -111,7 +304,9 @@ const OurServices = () => {
           <div className="w-full max-w-7xl mx-auto flex gap-12">
             {/* Left */}
             <div className="w-1/3 flex flex-col justify-start">
-              <h2 className="text-[48px] lg:text-[56px] font-dmsans font-bold mb-4">FAQs</h2>
+              <h2 className="text-[48px] lg:text-[56px] font-dmsans font-bold mb-4">
+                FAQs
+              </h2>
               <p className="text-xl lg:text-[24px] font-dmsans text-gray-300">
                 Have questions? Our FAQ section has you covered with quick answers
                 to the most common inquiries.
@@ -131,9 +326,8 @@ const OurServices = () => {
                   <div className="flex justify-between items-center">
                     <h3 className="text-2xl font-semibold">{faq.question}</h3>
                     <FaChevronDown
-                      className={`transition-transform duration-300 ${
-                        openIndexDesktop === index ? "rotate-180" : ""
-                      }`}
+                      className={`transition-transform duration-300 ${openIndexDesktop === index ? "rotate-180" : ""
+                        }`}
                     />
                   </div>
                   {openIndexDesktop === index && (
@@ -147,7 +341,16 @@ const OurServices = () => {
 
         {/* Mobile */}
         <div className="block md:hidden px-4 py-10">
-          <h2 className="text-3xl font-bold text-center mb-6">Quick FAQs</h2>
+          {/* Heading & Description */}
+          <h2 className="text-[32px] font-dmsans font-bold mb-4 text-left">
+            FAQs
+          </h2>
+          <p className="text-base font-dmsans text-gray-300 mb-6 text-left">
+            Have questions? Our FAQ section has you covered with quick answers
+            to the most common inquiries.
+          </p>
+
+          {/* FAQ Items */}
           <div className="flex flex-col gap-3">
             {faqs.map((faq, index) => (
               <div
@@ -160,9 +363,8 @@ const OurServices = () => {
                 <div className="flex justify-between items-center">
                   <h3 className="text-base font-semibold">{faq.question}</h3>
                   <FaChevronDown
-                    className={`transition-transform duration-300 ${
-                      openIndexMobile === index ? "rotate-180" : ""
-                    }`}
+                    className={`transition-transform duration-300 ${openIndexMobile === index ? "rotate-180" : ""
+                      }`}
                   />
                 </div>
                 {openIndexMobile === index && (
@@ -172,7 +374,7 @@ const OurServices = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div>
     </section>
   );
 };

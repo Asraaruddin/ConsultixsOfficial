@@ -85,19 +85,28 @@ const services = [
     image: clouds,
   },
 ];
-
 const ServiceCard = ({ title, description, tags, image }) => (
   <div
-    className="flex flex-col lg:flex-row w-full max-w-[1213px] bg-[#151515] rounded-lg overflow-hidden shadow-lg
-               border border-[#222] transition-transform hover:scale-[1.01]"
+    className="flex flex-col lg:flex-row w-full max-w-[1113px] bg-[#151515] rounded-lg overflow-hidden shadow-lg
+               border border-[#222] transition-transform hover:scale-[1.01] gap-6"
+    style={{ borderRadius: "12px" }}
   >
-    {/* Image */}
-    <div className="w-full lg:w-[299px] flex-shrink-0">
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-[220px] lg:h-[264px] object-cover object-center"
-      />
+    {/* Image container with padding */}
+    <div className="flex-shrink-0 flex justify-center items-center p-3 lg:p-4">
+      <div
+        className="bg-[#1E1E1E] rounded-lg overflow-hidden"
+        style={{
+          width: "299px",
+          height: "200px",
+          borderRadius: "12px",
+        }}
+      >
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover object-center rounded-lg"
+        />
+      </div>
     </div>
 
     {/* Text */}
@@ -121,6 +130,7 @@ const ServiceCard = ({ title, description, tags, image }) => (
     </div>
   </div>
 );
+
 
 const ServicePage = () => {
   return (
