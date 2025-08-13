@@ -35,41 +35,43 @@ const Contact = forwardRef((props, ref) => {
   //   });
   // };
 
-   const handleScheduleMeeting = async () => {
+  const handleScheduleMeeting = async () => {
     try {
-    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-    });
-
-    const data = await res.json();
-
-    if (res.ok) {
-      setSuccess('Message sent successfully!');
-      setFormData({ 
-        firstName: '', 
-        lastName: '', 
-        email: '', 
-        companyName: '', 
-        country: '', 
-        companyType: '', 
-        message: '' 
+      const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
-    } else {
-      setError(data.error || 'Something went wrong.');
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setSuccess('Message sent successfully!');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          companyName: '',
+          country: '',
+          companyType: '',
+          message: ''
+        });
+
+        // redirect after successful submission 
+        window.location.href = 'https://calendly.com/company-consultixs/30min';
+      } else {
+        setError(data.error || 'Something went wrong.');
+      }
+
+    } catch (err) {
+      console.error(err);
+      setError('Server error. Try again later.');
     }
 
-  } catch (err) {
-    console.error(err);
-    setError('Server error. Try again later.');
-  }
 
-  // Then redirect after successful submission (optional)
-  window.location.href = 'https://calendly.com/company-consultixs/30min';
-};
+  };
 
-  
+
 
   return (
     <section
