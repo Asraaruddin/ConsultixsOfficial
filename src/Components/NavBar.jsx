@@ -7,10 +7,6 @@ import { Link as ScrollLink } from 'react-scroll'; // ✅ Smooth scrolling
 const NavBar = ({ onFAQClick, onContactClick }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleFAQClick = () => {
-    if (onFAQClick) onFAQClick();
-    setMenuOpen(false);
-  };
 
   // Styles for links
   const linkClasses = ({ isActive }) =>
@@ -19,7 +15,7 @@ const NavBar = ({ onFAQClick, onContactClick }) => {
       : 'text-gray-300 font-normal';
 
   return (
-    <div className="w-full top-0 left-0 z-50 sticky backdrop-blur-md bg-black/24 rounded-b-[16px]">
+    <div className="w-full top-0 left-0 z-50 fixed backdrop-blur-md bg-black/24 rounded-b-[16px]">
 
       {/* ================= Desktop / Tablet Nav ================= */}
       <div className="hidden lg:flex max-w-[1440px] mx-auto px-12 py-2 justify-between items-center">
@@ -49,6 +45,9 @@ const NavBar = ({ onFAQClick, onContactClick }) => {
           </NavLink>
           <NavLink to="/hire-talent" className={linkClasses}>
             Hire Talent
+          </NavLink>
+          <NavLink to="/portfolio" className={linkClasses}>
+            Portfolio
           </NavLink>
         </nav>
 
@@ -100,7 +99,7 @@ const NavBar = ({ onFAQClick, onContactClick }) => {
                      bg-[linear-gradient(180deg,#0BC0FD_0%,#055EF2_71.63%)] 
                      hover:scale-105 transition cursor-pointer flex items-center justify-center"
         >
-          Contact Us
+          Book a Call
         </ScrollLink>
       </div>
 
@@ -116,10 +115,13 @@ const NavBar = ({ onFAQClick, onContactClick }) => {
           <NavLink to="/hire-talent" className={linkClasses} onClick={() => setMenuOpen(false)}>
             Hire Talent
           </NavLink>
+          <NavLink to="/portfolio" className={linkClasses} onClick={() => setMenuOpen(false)}>
+            Portfolio
+          </NavLink>
         </div>
       )}
     </div>
   );
 };
 
-export default NavBar;
+export default NavBar;

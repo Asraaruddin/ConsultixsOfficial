@@ -9,6 +9,8 @@ import Contact from './Components/Contact';
 import Home from './Pages/Home';
 import Services from './Pages/Services';
 import Hire from './Pages/Hire';
+import Portfolio from './Pages/Portfolio';
+import ScrollToTop from './Components/ScrooltoTop';
 
 function App() {
   const contactRef = useRef(null);
@@ -46,6 +48,7 @@ function App() {
 
   return (
     <>
+    <ScrollToTop/>
       {/* Root-level fixed background */}
       <div
         style={{
@@ -85,6 +88,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
           <Route path="/hire-talent" element={<Hire />} />
+          <Route path="/portfolio" element={<Portfolio />} />
         </Routes>
 
         <Contact ref={contactRef} />

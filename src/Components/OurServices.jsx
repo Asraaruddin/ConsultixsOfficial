@@ -3,6 +3,7 @@ import Frame from "../assets/Frame 245.png";
 import { FaStar, FaChevronDown } from "react-icons/fa";
 import testimonials1 from "../assets/testimonials1.jpg";
 import testimonials2 from "../assets/testimonials2.jpg";
+import  testimonials3 from "../assets/testimonials3.png"
 import ourservicesPic from "../assets/ourservices.jpg"; // Example default image
 import software from "../assets/software.png";
 import mobile from "../assets/mobile.png";
@@ -13,7 +14,10 @@ import blockchain from "../assets/blockchain.png";
 import backend from "../assets/backend.png";
 import arvr from "../assets/arvr.png";
 import aiml from "../assets/aiml.png";
-
+import Howitworks from "./Howitworks";
+import TopImage from "../assets/top.png"; // replace with actual path
+import BottomImage from "../assets/bottom.png";
+import { useNavigate } from "react-router-dom";
 const testimonials = [
   {
     image: testimonials1,
@@ -28,7 +32,7 @@ const testimonials = [
     review: "They handled our backend setup smoothly, solved deployment issues, and kept us updated. Felt like working with in-house developers."
   },
   {
-    image: testimonials1,
+    image: testimonials3,
     name: "Michael Johnson",
     role: "Product Manager",
     review: "Consultixs helped us launch on time, optimized performance, and stayed flexible with changes. Definitely recommend for startups and growing teams."
@@ -36,6 +40,9 @@ const testimonials = [
 ];
 
 const OurServices = () => {
+
+
+
   const faqs = [
     { question: "How experienced is your consulting team?", answer: "Our team comprises industry veterans with 10+ years of collective experience." },
     { question: "Do you offer customized solutions?", answer: "Absolutely. We design bespoke strategies aligned with your unique business goals, resources, and market dynamics—no one-size-fits-all approaches." },
@@ -131,6 +138,11 @@ const OurServices = () => {
       tags: ["AWS", "Azure", "CI/CD", "Kubernetes"],
     },
   ];
+  const navigate = useNavigate();
+
+  const handleGoToServices = () => {
+    navigate("/services");
+  };
 
   return (
     <section className="py-12 bg-black text-white">
@@ -145,14 +157,15 @@ const OurServices = () => {
             <p className="mt-4 text-sm sm:text-base lg:text-xl leading-relaxed sm:leading-tight max-w-[483px] font-dmsans">
               From idea to execution — everything you need to build and scale your business.
             </p>
-            <button
-              className="mt-6 text-white rounded-[12px] flex items-center justify-center w-[160px] sm:w-[200px] lg:w-[295px] h-[40px] sm:h-[48px] text-sm sm:text-lg lg:text-[18px] font-bold"
-              style={{
-                background: "linear-gradient(180deg, #0BC0FD 0%, #055EF2 71.63%)",
-              }}
-            >
-              Book a Call
-            </button>
+           <button
+      onClick={handleGoToServices}
+      className="mt-6 text-white rounded-[12px] flex items-center justify-center w-[160px] sm:w-[200px] lg:w-[295px] h-[40px] sm:h-[48px] text-sm sm:text-lg lg:text-[18px] font-bold cursor-pointer"
+      style={{
+        background: "linear-gradient(180deg, #0BC0FD 0%, #055EF2 71.63%)",
+      }}
+    >
+      View More
+    </button>
 
             {/* Image with overlay label */}
             {openServiceIndex !== null && (
@@ -243,58 +256,66 @@ const OurServices = () => {
         </div>
       </div>
 
+      <Howitworks/>
+
       {/* Testimonials */}
-     <div
-  className="w-full bg-center bg-no-repeat flex justify-center items-center text-white px-4 py-12"
-  style={{
-    backgroundImage: `url(${Frame})`,
-    backgroundColor: "black",
-    backgroundSize: "contain",
-    minHeight: "600px",
-  }}
->
-  <div className="flex justify-center items-start gap-6 max-w-7xl overflow-x-auto no-scrollbar">
-    {testimonials.map((testimonial, index) => (
-      <div
-        key={index}
-        className="bg-[#0D0D0D] p-4 sm:p-6 rounded-lg flex-shrink-0"
-        style={{ width: "340px", minHeight: "250px" }}
-      >
-        {/* Profile Row */}
-        <div className="flex items-center gap-3">
-          <img
-            src={testimonial.image}
-            alt={testimonial.name}
-            className="w-[48px] h-[48px] rounded-full object-cover"
-          />
-          <div>
-            <h3 className="text-[#0BC0FD] text-sm sm:text-base font-semibold">
-              {testimonial.name}
-            </h3>
-            <p className="text-gray-400 text-xs sm:text-sm">
-              {testimonial.role}
+      <div className="w-full bg-black flex flex-col items-center text-white px-4 py-12">
+      {/* Top Frame */}
+      <img
+        src={TopImage}
+        alt="Top Frame"
+        className="w-full max-w-[1440px] object-contain"
+      />
+
+      {/* Testimonials Row */}
+      <div className="flex justify-center items-start gap-6 max-w-7xl overflow-x-auto sm:overflow-x-hidden flex-wrap mt-8 no-scrollbar">
+        {testimonials.map((testimonial, index) => (
+          <div
+            key={index}
+            className="bg-[#0D0D0D] p-4 sm:p-6 rounded-lg flex-shrink-0 w-[85%] sm:w-[300px] md:w-[340px] min-h-[250px]"
+          >
+            {/* Profile Row */}
+            <div className="flex items-center gap-3">
+              <img
+                src={testimonial.image}
+                alt={testimonial.name}
+                className="w-[48px] h-[48px] rounded-full object-cover"
+              />
+              <div>
+                <h3 className="text-[#0BC0FD] text-sm sm:text-base font-semibold">
+                  {testimonial.name}
+                </h3>
+                <p className="text-gray-400 text-xs sm:text-sm">
+                  {testimonial.role}
+                </p>
+              </div>
+            </div>
+
+            {/* Stars */}
+            <div className="flex gap-1 text-white mt-3">
+              {[...Array(5)].map((_, i) => (
+                <FaStar key={i} size={20} />
+              ))}
+            </div>
+
+            {/* Review Text */}
+            <p className="text-sm sm:text-base md:text-[14px] font-dmsans text-left mt-3">
+              {testimonial.review}
             </p>
           </div>
-        </div>
-
-        {/* Stars */}
-        <div className="flex gap-1 text-white mt-3">
-          {[...Array(5)].map((_, i) => (
-            <FaStar key={i} size={20} />
-          ))}
-        </div>
-
-        {/* Review text */}
-        <p className="text-sm sm:text-base md:text-[14px] font-dmsans text-left mt-3">
-          {testimonial.review}
-        </p>
+        ))}
       </div>
-    ))}
-  </div>
-</div>
+
+      {/* Bottom Frame */}
+      <img
+        src={BottomImage}
+        alt="Bottom Frame"
+        className="w-full max-w-[1440px] object-contain mt-20 sm:mt-40"
+      />
+    </div>
 
 
-     
+
 
       {/* FAQ */}
       {/* FAQ Section */}
