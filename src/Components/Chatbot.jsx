@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import logo from '../assets/Logo.png';
+import logo from '../assets/logo.png';
 import { FaCommentDots, FaTimes, FaExpand, FaCompress} from 'react-icons/fa';
 import { IoIosRefresh } from "react-icons/io";
 import { SendHorizontal } from 'lucide-react';
