@@ -24,6 +24,32 @@ const Contact = forwardRef((props, ref) => {
   const dropdownStyles =
     "w-full appearance-none bg-[#151515] border border-[#6C6C6C] rounded-lg px-3 py-2 sm:py-3 text-white focus:border-white focus:outline-none text-sm sm:text-base";
 
+  // const openCalendly = () => {
+  //   window.Calendly.initPopupWidget({
+  //     url: "https://calendly.com/mdmoghnishah/30min"
+  //   });
+  // };
+
+   const handleScheduleMeeting = async () => {
+    try {
+      await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      // Redirect to Calendly
+      window.location.href = 'https://calendly.com/company-consultixs/30min';
+      } catch (err) {
+            console.error(err);
+            setError('Server error. Try again later.');
+        }
+  };
+
+  
+
   return (
     <section
       id="contact"
@@ -199,12 +225,16 @@ const Contact = forwardRef((props, ref) => {
 
             {/* Submit Button */}
             <button
-              type="submit"
+              type="button"
+              // onClick={() => window.open('https://calendly.com/company-consultixs/30min', '_blank')}
+              onClick={handleScheduleMeeting}
               className="w-full bg-gradient-to-b from-[#0BC0FD] to-[#055EF2] py-2 sm:py-3 rounded-[12px] text-sm sm:text-base font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
             >
               Schedule Meeting
-              <SendHorizontal className="w-4 sm:w-5 h-4 sm:h-5" />
+              <div className="w-4 sm:w-5 h-4 sm:h-5" />
             </button>
+
+
           </form>
         </div>
       </div>

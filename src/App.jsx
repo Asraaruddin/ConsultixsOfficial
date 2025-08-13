@@ -9,6 +9,7 @@ import Contact from './Components/Contact';
 import Home from './Pages/Home';
 import Services from './Pages/Services';
 import Hire from './Pages/Hire';
+import Chatbot from './Components/Chatbot';
 
 function App() {
   const contactRef = useRef(null);
@@ -89,6 +90,7 @@ function App() {
 
         <Contact ref={contactRef} />
         <Footer />
+        <Chatbot/>
       </div>
     </>
   );
