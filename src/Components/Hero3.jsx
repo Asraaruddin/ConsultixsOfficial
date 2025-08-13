@@ -26,23 +26,25 @@ export default function Hero3() {
         End-to-end tech, marketing, and outsourcing to help your business scale faster.
       </p>
 
-      <div className="mt-6 flex gap-4">
-        {/* View More Work → Portfolio Case Studies */}
-        <button
-          onClick={handleGoToPortfolioCaseStudies}
-          className="px-6 py-3 bg-gradient-to-b from-[#0BC0FD] to-[#055EF2] text-white rounded-[12px] font-bold cursor-pointer font-dmsans hover:opacity-90 transition"
-        >
-          View more work
-        </button>
+     <div className="mt-6 flex gap-4">
+  {/* View More Work → Portfolio Case Studies */}
+  <button
+    onClick={handleGoToPortfolioCaseStudies}
+    className="px-6 py-3 bg-gradient-to-b from-[#0BC0FD] to-[#055EF2] text-white rounded-[12px] font-bold cursor-pointer font-dmsans hover:opacity-90 transition"
+  >
+    View more work
+  </button>
 
-        {/* Contact Us → Scroll to Contact */}
-        <button
-          onClick={handleScrollToContact}
-          className="px-6 py-3 border border-white text-white rounded-xl font-bold cursor-pointer font-dmsans hover:bg-white hover:text-black transition"
-        >
-          Contact Us
-        </button>
-      </div>
+  {/* Contact Us → Scroll to Contact */}
+  <button
+    onClick={handleScrollToContact}
+    className="px-6 py-3 w-auto text-white border border-white rounded-[12px] font-bold cursor-pointer font-dmsans hover:bg-white hover:text-black transition"
+    style={{ width: 'auto', minWidth: '160px', padding: '12px 24px' }} // match size of View more work
+  >
+    Contact Us
+  </button>
+</div>
+
     </section>
   );
 }

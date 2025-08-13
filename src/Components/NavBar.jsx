@@ -21,19 +21,20 @@ const NavBar = ({ onFAQClick, onContactClick }) => {
       <div className="hidden lg:flex max-w-[1440px] mx-auto px-12 py-2 justify-between items-center">
 
         {/* Logo */}
+        <NavLink to="/">
         <div className="flex items-center space-x-2">
           <div className="w-[60px] h-[60px]">
-            <NavLink to="/">
+            
               <img src={logo} alt="Consultixs Logo" className="w-full h-full object-contain" />
-            </NavLink>
           </div>
 
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center cursor-pointer">
             <span className="text-white font-semibold text-[24px] font-dmsans">
               Consultixs
             </span>
           </div>
         </div>
+        </NavLink>
 
         {/* Nav Links */}
         <nav className="flex flex-wrap gap-[24px] font-dmsans text-[16px] lg:text-[20px]">

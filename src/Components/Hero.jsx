@@ -39,7 +39,7 @@ export default function Hero() {
 
         <button
           onClick={handleGoToPortfolio}
-         className="px-6 py-3 bg-gradient-to-b text-[16px] from-[#0BC0FD] to-[#055EF2] text-white rounded-[12px] font-bold cursor-pointer font-dmsans"
+         className="px-6 py-3 border border-white text-white rounded-xl font-bold cursor-pointer font-dmsans hover:bg-white hover:text-black transition"
         >
           Previous projects
         </button>

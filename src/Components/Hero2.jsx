@@ -39,7 +39,7 @@ export default function Hero() {
         {/* Previous Work → Go to Portfolio */}
         <button
           onClick={handleGoToPortfolio}
-          className="px-6 py-3 border border-white text-white rounded-xl font-bold cursor-pointer font-dmsans hover:bg-white hover:text-black transition"
+          className="px-6 py-3 border border-white   text-white rounded-xl font-bold cursor-pointer font-dmsans hover:bg-white hover:text-black transition "
         >
           Previous Work
         </button>

@@ -147,7 +147,8 @@ const OurServices = () => {
   return (
     <section className="py-12 bg-black text-white">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-10 lg:gap-20 items-start">
+
           
           {/* Left Side */}
           <div className="flex flex-col lg:py-6 ml-0 lg:ml-6">
@@ -177,7 +178,7 @@ const OurServices = () => {
     max-w-[220px]     /* mobile */
     sm:max-w-[320px]  /* tablet */
     md:max-w-md       /* medium */
-    lg:w-[414px] lg:h-[439px] /* desktop fixed size */
+    lg:w-[414px] lg:h-[439px] /* desktop size */
     rounded-[20px] 
     overflow-hidden 
     bg-[#0D0E10] 
@@ -195,8 +196,6 @@ const OurServices = () => {
     className="absolute bottom-0 left-0 p-4 w-full"
     style={{
       background: "#000000",
-      borderBottomRightRadius: "16px",
-      borderBottomLeftRadius: "16px",
       borderWidth: "1px",
       borderStyle: "solid",
       borderImageSource:
@@ -218,7 +217,7 @@ const OurServices = () => {
           </div>
 
           {/* Right Side */}
-          <div className="flex flex-col gap-4 px-2 sm:px-6 lg:px-10 xl:px-14 lg:py-6">
+          <div className="flex flex-col gap-4 px-2 sm:px-6 lg:px-10 xl:px-14 lg:py-10">
             {services.map((service, index) => (
               <div key={index} className="w-full">
                 <div
@@ -227,7 +226,7 @@ const OurServices = () => {
                     setOpenServiceIndex(openServiceIndex === index ? null : index)
                   }
                 >
-                  <span className="font-['DM_Sans'] font-semibold text-xl sm:text-2xl lg:text-[32px] leading-[100%] tracking-[-0.01em]">
+                  <span className="font-['DM_Sans'] font-medium text-xl sm:text-2xl lg:text-[32px] leading-[100%] tracking-[-0.01em]">
                     {service.name}
                   </span>
                   <FaChevronDown
@@ -319,7 +318,7 @@ const OurServices = () => {
 
       {/* FAQ */}
       {/* FAQ Section */}
-      <div id="faq" className="w-full bg-black text-white">
+      <div id="faq" className="w-full bg-black text-[#ffffff]">
         {/* Desktop & Tablet */}
         <div className="hidden md:block px-6 lg:px-20 py-12 sm:py-16">
           <div className="w-full max-w-7xl mx-auto flex gap-12">

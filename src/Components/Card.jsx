@@ -56,7 +56,7 @@ const Cards = () => {
     <div className="w-full bg-black py-20 px-14">
       {/* Toggle Buttons */}
       <div
-        className="flex items-center gap-2 mb-10"
+        className="flex items-center gap-2 mb-10 cursor-pointer"
         style={{
           width: "294px",
           height: "53px",
@@ -65,41 +65,42 @@ const Cards = () => {
           padding: "4px",
         }}
       >
-        <button
-          onClick={() => setActiveTab("websites")}
-          className={`font-medium text-sm ${
-            activeTab === "websites"
-              ? "bg-white text-black"
-              : "bg-transparent text-white"
-          }`}
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            width: "143px",
-            height: "45px",
-            borderRadius: "8px",
-            padding: "12px 20px",
-          }}
-        >
-          Websites
-        </button>
+       <button
+  onClick={() => setActiveTab("websites")}
+  className={`cursor-pointer font-medium text-sm ${
+    activeTab === "websites"
+      ? "bg-white text-black"
+      : "bg-transparent text-white"
+  }`}
+  style={{
+    fontFamily: "'DM Sans', sans-serif",
+    width: "143px",
+    height: "45px",
+    borderRadius: "8px",
+    padding: "12px 20px",
+  }}
+>
+  Websites
+</button>
 
-        <button
-          onClick={handleCaseStudiesClick}
-          className={`font-medium text-sm ${
-            activeTab === "caseStudies"
-              ? "bg-white text-black"
-              : "bg-transparent text-white"
-          }`}
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            width: "143px",
-            height: "45px",
-            borderRadius: "8px",
-            padding: "12px 20px",
-          }}
-        >
-          Case Studies
-        </button>
+<button
+  onClick={handleCaseStudiesClick}
+  className={`cursor-pointer font-medium text-sm ${
+    activeTab === "caseStudies"
+      ? "bg-white text-black"
+      : "bg-transparent text-white"
+  }`}
+  style={{
+    fontFamily: "'DM Sans', sans-serif",
+    width: "143px",
+    height: "45px",
+    borderRadius: "8px",
+    padding: "12px 20px",
+  }}
+>
+  Case Studies
+</button>
+
       </div>
 
       {/* Card Grid */}
