@@ -12,12 +12,17 @@ const Contact = forwardRef((props, ref) => {
     message: "",
   });
 
+  const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
+
   const handleInputChange = (field, value) => {
     setFormData({ ...formData, [field]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setSuccess('');
+    setError('');
     // Submit logic here
   };
 
@@ -32,21 +37,37 @@ const Contact = forwardRef((props, ref) => {
 
    const handleScheduleMeeting = async () => {
     try {
-      await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/contact`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
 
-      // Redirect to Calendly
-      window.location.href = 'https://calendly.com/company-consultixs/30min';
-      } catch (err) {
-            console.error(err);
-            setError('Server error. Try again later.');
-        }
-  };
+    const data = await res.json();
+
+    if (res.ok) {
+      setSuccess('Message sent successfully!');
+      setFormData({ 
+        firstName: '', 
+        lastName: '', 
+        email: '', 
+        companyName: '', 
+        country: '', 
+        companyType: '', 
+        message: '' 
+      });
+    } else {
+      setError(data.error || 'Something went wrong.');
+    }
+
+  } catch (err) {
+    console.error(err);
+    setError('Server error. Try again later.');
+  }
+
+  // Then redirect after successful submission (optional)
+  window.location.href = 'https://calendly.com/company-consultixs/30min';
+};
 
   
 
@@ -225,7 +246,7 @@ const Contact = forwardRef((props, ref) => {
 
             {/* Submit Button */}
             <button
-              type="button"
+              type="submit"
               // onClick={() => window.open('https://calendly.com/company-consultixs/30min', '_blank')}
               onClick={handleScheduleMeeting}
               className="w-full bg-gradient-to-b from-[#0BC0FD] to-[#055EF2] py-2 sm:py-3 rounded-[12px] text-sm sm:text-base font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
@@ -233,6 +254,9 @@ const Contact = forwardRef((props, ref) => {
               Schedule Meeting
               <div className="w-4 sm:w-5 h-4 sm:h-5" />
             </button>
+
+            {success && <p className="text-green-400 mt-4">{success}</p>}
+            {error && <p className="text-red-400 mt-4">{error}</p>}
 
 
           </form>
