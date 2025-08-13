@@ -12,8 +12,10 @@ export default function Hero() {
   };
 
   // Navigate to Portfolio page (case studies visible by default)
-  const handleGoToPortfolio = () => {
-    navigate("/portfolio");
+ 
+
+  const handleGoToPortfolioWebsites = () => {
+    navigate("/portfolio", { state: { scrollTo: "websites" } });
   };
 
   return (
@@ -38,7 +40,7 @@ export default function Hero() {
 
         {/* Previous Work → Go to Portfolio */}
         <button
-          onClick={handleGoToPortfolio}
+          onClick={handleGoToPortfolioWebsites}
           className="px-6 py-3 border border-white   text-white rounded-xl font-bold cursor-pointer font-dmsans hover:bg-white hover:text-black transition "
         >
           Previous Work

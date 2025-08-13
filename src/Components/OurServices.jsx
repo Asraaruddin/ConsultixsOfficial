@@ -167,53 +167,61 @@ const OurServices = () => {
     >
       View More
     </button>
-
-            {/* Image with overlay label */}
-            {openServiceIndex !== null && (
-             
-             <div
-  className="
-    mt-6 relative 
-    w-full 
-    max-w-[220px]     /* mobile */
-    sm:max-w-[320px]  /* tablet */
-    md:max-w-md       /* medium */
-    lg:w-[414px] lg:h-[439px] /* desktop size */
-    rounded-[20px] 
-    overflow-hidden 
-    bg-[#0D0E10] 
-    mx-auto 
-    sm:mx-auto 
-    lg:ml-[-1px]      /* keep Figma alignment on desktop only */
-  "
->
-  <img
-    src={services[openServiceIndex].image}
-    alt={services[openServiceIndex].name}
-    className="w-full h-auto object-cover"
-  />
+   {/* Service Card */}
+{openServiceIndex !== null && (
   <div
-    className="absolute bottom-0 left-0 p-4 w-full"
-    style={{
-      background: "#000000",
-      borderWidth: "1px",
-      borderStyle: "solid",
-      borderImageSource:
-        "linear-gradient(89.79deg, #000000 -60.4%, #666666 50%)",
-      borderImageSlice: 1,
-    }}
+    className="
+      mt-6 w-full
+      max-w-[260px] sm:max-w-[320px] md:max-w-[420px] lg:max-w-[414px] 
+      rounded-[20px] 
+      overflow-hidden 
+      bg-[#0D0E10]
+      mx-auto
+      lg:ml-[-1px] 
+      flex flex-col
+    "
   >
-    <h3 className="text-white text-sm sm:text-lg font-semibold">
-      {services[openServiceIndex].name}
-    </h3>
-    <p className="text-gray-300 text-xs sm:text-sm">
-      {services[openServiceIndex].description}
-    </p>
+    {/* Top: Image */}
+    <div className="w-full">
+      <img
+        src={services[openServiceIndex].image}
+        alt={services[openServiceIndex].name}
+        className="w-full h-[160px] sm:h-[200px] md:h-[240px] object-cover"
+      />
+    </div>
+
+    {/* Bottom: Text */}
+    <div
+      className="
+        w-full px-3 py-2 sm:px-4 sm:py-3
+        flex flex-col gap-1
+      "
+      style={{
+        background: "#0D0E10",
+        borderTop: "1px solid",
+        borderImageSource:
+          "linear-gradient(89.79deg, #000000 -60.4%, #666666 50%)",
+        borderImageSlice: 1,
+      }}
+    >
+      <h3 className="
+        text-white font-semibold leading-tight
+        text-xs sm:text-sm md:text-base
+      ">
+        {services[openServiceIndex].name}
+      </h3>
+
+      <p className="
+        text-gray-300 leading-snug
+        text-[10px] sm:text-xs md:text-sm
+        line-clamp-2
+      ">
+        {services[openServiceIndex].description}
+      </p>
+    </div>
   </div>
-</div>
+)}
 
-
-            )}
           </div>
 
           {/* Right Side */}
@@ -257,61 +265,61 @@ const OurServices = () => {
 
       <Howitworks/>
 
-      {/* Testimonials */}
-      <div className="w-full bg-black flex flex-col items-center text-white px-4 py-12">
-      {/* Top Frame */}
-      <img
-        src={TopImage}
-        alt="Top Frame"
-        className="w-full max-w-[1440px] object-contain"
-      />
+     {/* Testimonials */}
+<div className="w-full bg-black flex flex-col items-center text-white px-4 py-12">
+  {/* Top Frame */}
+  <img
+    src={TopImage}
+    alt="Top Frame"
+    className="w-full max-w-[1440px] object-contain h-auto px-2 sm:px-4"
+  />
 
-      {/* Testimonials Row */}
-      <div className="flex justify-center items-start gap-6 max-w-7xl overflow-x-auto sm:overflow-x-hidden flex-wrap mt-8 no-scrollbar">
-        {testimonials.map((testimonial, index) => (
-          <div
-            key={index}
-            className="bg-[#0D0D0D] p-4 sm:p-6 rounded-lg flex-shrink-0 w-[85%] sm:w-[300px] md:w-[340px] min-h-[250px]"
-          >
-            {/* Profile Row */}
-            <div className="flex items-center gap-3">
-              <img
-                src={testimonial.image}
-                alt={testimonial.name}
-                className="w-[48px] h-[48px] rounded-full object-cover"
-              />
-              <div>
-                <h3 className="text-[#0BC0FD] text-sm sm:text-base font-semibold">
-                  {testimonial.name}
-                </h3>
-                <p className="text-gray-400 text-xs sm:text-sm">
-                  {testimonial.role}
-                </p>
-              </div>
-            </div>
-
-            {/* Stars */}
-            <div className="flex gap-1 text-white mt-3">
-              {[...Array(5)].map((_, i) => (
-                <FaStar key={i} size={20} />
-              ))}
-            </div>
-
-            {/* Review Text */}
-            <p className="text-sm sm:text-base md:text-[14px] font-dmsans text-left mt-3">
-              {testimonial.review}
+  {/* Testimonials Row */}
+  <div className="flex justify-center items-start gap-6 max-w-7xl mt-8 flex-wrap sm:flex-nowrap overflow-x-auto sm:overflow-x-hidden no-scrollbar">
+    {testimonials.map((testimonial, index) => (
+      <div
+        key={index}
+        className="bg-[#0D0D0D] p-4 sm:p-6 rounded-lg flex-shrink-0 w-[85%] sm:w-[calc(33.333%-1rem)] md:w-[calc(33.333%-1rem)] min-h-[250px]"
+      >
+        {/* Profile Row */}
+        <div className="flex items-center gap-3">
+          <img
+            src={testimonial.image}
+            alt={testimonial.name}
+            className="w-[48px] h-[48px] rounded-full object-cover"
+          />
+          <div>
+            <h3 className="text-[#0BC0FD] text-sm sm:text-base font-semibold">
+              {testimonial.name}
+            </h3>
+            <p className="text-gray-400 text-xs sm:text-sm">
+              {testimonial.role}
             </p>
           </div>
-        ))}
-      </div>
+        </div>
 
-      {/* Bottom Frame */}
-      <img
-        src={BottomImage}
-        alt="Bottom Frame"
-        className="w-full max-w-[1440px] object-contain mt-20 sm:mt-40"
-      />
-    </div>
+        {/* Stars */}
+        <div className="flex gap-1 text-white mt-3">
+          {[...Array(5)].map((_, i) => (
+            <FaStar key={i} size={20} />
+          ))}
+        </div>
+
+        {/* Review Text */}
+        <p className="text-sm sm:text-base md:text-[14px] font-dmsans text-left mt-3">
+          {testimonial.review}
+        </p>
+      </div>
+    ))}
+  </div>
+
+  {/* Bottom Frame */}
+  <img
+    src={BottomImage}
+    alt="Bottom Frame"
+    className="w-full max-w-[1440px] object-contain h-auto mt-20 sm:mt-40 px-2 sm:px-4"
+  />
+</div>
 
 
 

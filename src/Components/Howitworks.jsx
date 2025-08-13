@@ -55,26 +55,30 @@ const Howitworks = () => {
         </div>
 
          <div className="mt-12 flex justify-center">
-          <button
-            style={{
-              background: "linear-gradient(180deg, #0BC0FD 0%, #055EF2 71.63%)",
-              width: "295px",
-              height: "48px",
-              borderRadius: "12px",
-              color: "#FFFFFF",
-              fontFamily: "'DM Sans', sans-serif",
-              fontWeight: 500,
-              fontSize: "16px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "8px",
-              cursor: "pointer",
-              border: "none",
-            }}
-          >
-            Book an Appointment
-          </button>
+        <button
+  onClick={() => {
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  }}
+  style={{
+    background: "linear-gradient(180deg, #0BC0FD 0%, #055EF2 71.63%)",
+    width: "295px",
+    height: "48px",
+    borderRadius: "12px",
+    color: "#FFFFFF",
+    fontFamily: "'DM Sans', sans-serif",
+    fontWeight: 500,
+    fontSize: "16px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "8px",
+    cursor: "pointer",
+    border: "none",
+  }}
+>
+  Book an Appointment
+</button>
+
         </div>
 
         {/* Steps */}
