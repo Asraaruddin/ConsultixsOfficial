@@ -46,7 +46,7 @@ const Contact = forwardRef((props, ref) => {
       const data = await res.json();
 
       if (res.ok) {
-        setSuccess('Message sent successfully!');
+        //setSuccess('Message sent successfully!');
         setFormData({
           firstName: '',
           lastName: '',
