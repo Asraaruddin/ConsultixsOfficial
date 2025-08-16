@@ -289,7 +289,7 @@ const Chatbot = () => {
 
                 </div>
             ) : (
-                <button
+                <button aria-label="Open chatbot"
                     onClick={() => setShowChat(true)}
                     className="bg-[#045DF1] text-white p-4 rounded-full shadow-lg hover:scale-105 transition"
                 >
