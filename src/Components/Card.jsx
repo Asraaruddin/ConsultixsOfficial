@@ -257,7 +257,7 @@ const Cards = () => {
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
                     fontWeight: 700,
-                    fontSize: "34px",
+                    fontSize: "32.5px",
                     lineHeight: "100%",
                     textAlign: "center",
                     color: "#FFFFFF",
@@ -271,7 +271,7 @@ const Cards = () => {
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
                     fontWeight: 600,
-                    fontSize: "30px",
+                    fontSize: "28px",
                     lineHeight: "100%",
                     textAlign: "center",
                     color: "#B7B7B7",
