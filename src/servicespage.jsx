@@ -17,7 +17,7 @@ const services = [
   {
     title: "Software Development",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum facilis consequatur perspiciatis repudiandae ut laborum explicabo quis, dolorum corporis atque at possimus nam enim accusantium veritatis aperiam! Velit, soluta sequi.",
+      "We build custom software solutions that streamline operations, enhance user experiences, and drive measurable business results. Whether you need a simple tool or an enterprise-grade system, our team delivers high-quality, scalable applications tailored to your goals.",
     tags: ["Django", "Java", "Integration", "Web and Desktop"],
     image: software,
   },
