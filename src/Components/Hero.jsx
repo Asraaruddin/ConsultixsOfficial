@@ -28,22 +28,24 @@ export default function Hero() {
         Consultixs blends technology, marketing, and AI to help your business
         launch, scale, and succeed — affordably and efficiently.
       </p>
+      <div className="flex flex-row flex-wrap justify-center gap-3 mt-6 w-full">
+  <button
+    onClick={handleScrollToContact}
+    className="px-4 md:px-6 py-2 md:py-3 bg-gradient-to-b from-[#0BC0FD] to-[#055EF2] text-white rounded-[10px] md:rounded-[12px] font-bold cursor-pointer font-dmsans text-[13px] md:text-[16px]"
+  >
+    Schedule a Meeting
+  </button>
 
-      <div className="flex gap-4 mt-6">
-        <button
-          onClick={handleScrollToContact}
-          className="px-6 py-3 bg-gradient-to-b text-[16px] from-[#0BC0FD] to-[#055EF2] text-white rounded-[12px] font-bold cursor-pointer font-dmsans"
-        >
-          Schedule a meeting
-        </button>
+  <button
+    onClick={handleGoToPortfolio}
+    className="px-4 md:px-6 py-2 md:py-3 border border-white text-white rounded-[10px] md:rounded-xl font-bold cursor-pointer font-dmsans hover:bg-white hover:text-black transition text-[13px] md:text-[16px]"
+  >
+    Previous Projects
+  </button>
+</div>
 
-        <button
-          onClick={handleGoToPortfolio}
-         className="px-6 py-3 border border-white text-white rounded-xl font-bold cursor-pointer font-dmsans hover:bg-white hover:text-black transition"
-        >
-          Previous projects
-        </button>
-      </div>
+
+
     </section>
   );
 }

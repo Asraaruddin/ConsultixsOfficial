@@ -25,25 +25,25 @@ export default function Hero3() {
       <p className="text-white text-[12px] md:text-[20px] max-w-2xl font-light">
         End-to-end tech, marketing, and outsourcing to help your business scale faster.
       </p>
-
-     <div className="mt-6 flex gap-4">
-  {/* View More Work → Portfolio Case Studies */}
+ <div className="flex flex-row flex-wrap justify-center gap-3 mt-6 w-full">
   <button
     onClick={handleGoToPortfolioCaseStudies}
-    className="px-6 py-3 bg-gradient-to-b from-[#0BC0FD] to-[#055EF2] text-white rounded-[12px] font-bold cursor-pointer font-dmsans hover:opacity-90 transition"
+    className="px-4 md:px-6 py-2 md:py-3 bg-gradient-to-b from-[#0BC0FD] to-[#055EF2] text-white rounded-[10px] md:rounded-[12px] font-bold cursor-pointer font-dmsans text-[13px] md:text-[16px] min-w-[160px]"
   >
     View more work
   </button>
 
-  {/* Contact Us → Scroll to Contact */}
   <button
     onClick={handleScrollToContact}
-    className="px-6 py-3 w-auto text-white border border-white rounded-[12px] font-bold cursor-pointer font-dmsans hover:bg-white hover:text-black transition"
-    style={{ width: 'auto', minWidth: '160px', padding: '12px 24px' }} // match size of View more work
+    className="px-4 md:px-6 py-2 md:py-3 border border-white text-white rounded-[10px] md:rounded-[12px] font-bold cursor-pointer font-dmsans hover:bg-white hover:text-black transition text-[13px] md:text-[16px] min-w-[160px]"
   >
     Contact Us
   </button>
 </div>
+
+
+
+  
 
     </section>
   );

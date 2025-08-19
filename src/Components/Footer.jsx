@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import backgroundImage from "../assets/bghome.png";
 import logo from "../assets/logo.png";
-import { MapPinCheckInside, Mail } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -82,7 +82,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <MapPinCheckInside className="w-4 h-4 text-white" />
+                <MapPin className="w-4 h-4  text-white" />
                 Location: San Jose, CA
               </li>
             </ul>
